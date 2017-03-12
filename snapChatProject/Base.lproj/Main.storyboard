@@ -128,6 +128,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -161,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igI-GP-QBW">
-                                <rect key="frame" x="0.0" y="72" width="414" height="615"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -169,7 +174,7 @@
                             <constraint firstItem="HIn-1H-lbl" firstAttribute="top" secondItem="igI-GP-QBW" secondAttribute="bottom" id="0YJ-Wa-uch"/>
                             <constraint firstItem="igI-GP-QBW" firstAttribute="leading" secondItem="Yr1-pI-TO1" secondAttribute="leadingMargin" constant="-20" id="1Uv-Wz-cMI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="igI-GP-QBW" secondAttribute="trailing" constant="-20" id="mXf-0R-Uaf"/>
-                            <constraint firstItem="igI-GP-QBW" firstAttribute="top" secondItem="X7Y-0n-eWa" secondAttribute="bottom" constant="8" id="ujD-2T-Bfk"/>
+                            <constraint firstItem="igI-GP-QBW" firstAttribute="top" secondItem="X7Y-0n-eWa" secondAttribute="bottom" id="ujD-2T-Bfk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -273,7 +278,7 @@
                                         <rect key="frame" x="0.0" y="28" width="406" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oxm-BL-xaX" id="TcQ-Tk-1Sn">
-                                            <rect key="frame" x="0.0" y="0.0" width="406" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="406" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1p-Uh-71z">
@@ -283,6 +288,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="F1p-Uh-71z" firstAttribute="leading" secondItem="TcQ-Tk-1Sn" secondAttribute="leadingMargin" constant="58" id="BTq-lE-uyv"/>
                                                 <constraint firstItem="F1p-Uh-71z" firstAttribute="centerY" secondItem="TcQ-Tk-1Sn" secondAttribute="centerY" id="QfB-r6-4Hz"/>
@@ -290,6 +296,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="F1p-Uh-71z" secondAttribute="bottom" id="zg4-dh-iAU"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.14182898116438356" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="categoryLabel" destination="F1p-Uh-71z" id="NeT-Po-p1b"/>
                                         </connections>

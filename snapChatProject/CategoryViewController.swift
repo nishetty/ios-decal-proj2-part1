@@ -19,7 +19,7 @@ class CategoryViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
 
@@ -28,7 +28,6 @@ class CategoryViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        UITableView.appearance().separatorColor = UIColor.gray
         return threadNames.count
     }
     
