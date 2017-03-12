@@ -9,24 +9,37 @@
 import UIKit
 
 class ImagePickerController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    var chosenImage = UIImage()
     
     @IBOutlet var imageCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageCollectionView.collectionViewLayout = ImageFlowLayout.init()
         self.imageCollectionView.backgroundColor = UIColor.lightGray
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
     func selectImage(_ image: UIImage) {
         //The image being selected is passed in as "image".
+        self.chosenImage = image
+        performSegue(withIdentifier: "imageChoice", sender: self)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "imageChoice" {
+            if let nextViewController = segue.destination as? CategoryViewController {
+                nextViewController.image = self.chosenImage
+                
+            }
+        }
+    
     }
     
-    
+    @IBAction func unwindToImagePicker(segue: UIStoryboardSegue){}
     
     //DON'T MODIFY CODE HERE AND BELOW!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
