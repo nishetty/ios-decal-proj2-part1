@@ -55,14 +55,15 @@ class CategoryViewController: UIViewController, UITableViewDataSource, UITableVi
             let timePosted = Date()
             times[self.bottomLabelText]!.append(timePosted)
             
-            self.performSegue(withIdentifier: "unwindToImagePicker", sender: self)
-            
             let alert = UIAlertController(title: "Posted!", message: "Add another image to a feed!", preferredStyle: UIAlertControllerStyle.alert)
             
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {
+                (_)in
+                self.performSegue(withIdentifier: "unwindToImagePicker", sender: self)
+            }))
+                self.present(alert, animated: true, completion: nil)
             
-            // BUG: ALERT NOT SHOWING!!!
+            // why does it only work this way?
             
         
             } else{
