@@ -56,7 +56,7 @@ class CategoryViewController: UIViewController, UITableViewDataSource, UITableVi
             times[self.bottomLabelText]!.append(timePosted)
             
             self.performSegue(withIdentifier: "unwindToImagePicker", sender: self)
-            ß
+            
             let alert = UIAlertController(title: "Posted!", message: "Add another image to a feed!", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
