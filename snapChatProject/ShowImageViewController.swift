@@ -18,14 +18,19 @@ class ShowImageViewController: UIViewController {
     let tapRec = UITapGestureRecognizer()
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         if let newImage = selectedImage {
             imageView?.image = newImage
         }
-        tapRec.addTarget(self, action: "tappedView")
+        tapRec.addTarget(self, action: #selector(ShowImageViewController.tappedView))
         
         
         tapView.addGestureRecognizer(tapRec)
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.isNavigationBarHidden = true
     }
     func tappedView(){
         performSegue(withIdentifier: "unwindToFeed", sender: self)

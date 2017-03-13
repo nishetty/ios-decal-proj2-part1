@@ -11,7 +11,7 @@ import UIKit
 class CategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var chosenCategory = ""
     var image: UIImage?
-    var bottomLabelText = ""
+    var bottomLabelText = "Category"
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -48,27 +48,31 @@ class CategoryViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     
-    
     @IBAction func goButton(_ sender: Any) {
-        threads[self.bottomLabelText]!.append(self.image!)
-        print(threads)
-        let timePosted = Date()
-        times[self.bottomLabelText]!.append(timePosted)
-        let alert = UIAlertController(title: "Posted!", message: "Add another image to a feed!", preferredStyle: UIAlertControllerStyle.alert)
+    
+        if threadNames.contains(self.bottomLabelText){
+            threads[self.bottomLabelText]!.append(self.image!)
+            let timePosted = Date()
+            times[self.bottomLabelText]!.append(timePosted)
+            
+            self.performSegue(withIdentifier: "unwindToImagePicker", sender: self)
+            ß
+            let alert = UIAlertController(title: "Posted!", message: "Add another image to a feed!", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            // BUG: ALERT NOT SHOWING!!!
+            
         
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        
-        // show the alert
-        self.performSegue(withIdentifier: "unwindToImagePicker", sender: self)
-        self.present(alert, animated: true, completion: nil)
-        
+            } else{
+                //tell them to choose a category
+                let notChosenAlert = UIAlertController(title: "OOPS", message: "Choose a category", preferredStyle: UIAlertControllerStyle.alert)
+                notChosenAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(notChosenAlert, animated: true, completion: nil)
+        }
     }
  
-        
-    
-
-
     /*
     // MARK: - Navigation
 

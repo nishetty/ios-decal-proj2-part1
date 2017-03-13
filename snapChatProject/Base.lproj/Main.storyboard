@@ -162,21 +162,23 @@
                         <viewControllerLayoutGuide type="bottom" id="HIn-1H-lbl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yr1-pI-TO1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igI-GP-QBW">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="-65" width="414" height="688"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HIn-1H-lbl" firstAttribute="top" secondItem="igI-GP-QBW" secondAttribute="bottom" id="0YJ-Wa-uch"/>
                             <constraint firstItem="igI-GP-QBW" firstAttribute="leading" secondItem="Yr1-pI-TO1" secondAttribute="leadingMargin" constant="-20" id="1Uv-Wz-cMI"/>
+                            <constraint firstItem="igI-GP-QBW" firstAttribute="top" secondItem="Yr1-pI-TO1" secondAttribute="topMargin" constant="-65" id="9cU-xK-ZeK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="igI-GP-QBW" secondAttribute="trailing" constant="-20" id="mXf-0R-Uaf"/>
-                            <constraint firstItem="igI-GP-QBW" firstAttribute="top" secondItem="X7Y-0n-eWa" secondAttribute="bottom" id="ujD-2T-Bfk"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="imageView" destination="igI-GP-QBW" id="REc-v7-8BL"/>
                         <outlet property="tapView" destination="igI-GP-QBW" id="Xzy-Wm-TTX"/>
@@ -230,7 +232,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="image" destination="2v8-Yu-FIQ" id="D2P-b4-kAh"/>
-                                            <segue destination="L0G-IN-YsK" kind="show" identifier="imageChoice" id="9zv-1i-I10"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -251,6 +252,7 @@
                     <navigationItem key="navigationItem" title="Snapchat 2.0" id="1DI-gn-L1G"/>
                     <connections>
                         <outlet property="imageCollectionView" destination="wYC-QR-9eI" id="lwC-Kg-QfQ"/>
+                        <segue destination="L0G-IN-YsK" kind="show" identifier="imageChoice" id="EHK-bO-dHf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -278,7 +280,7 @@
                                         <rect key="frame" x="0.0" y="28" width="406" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oxm-BL-xaX" id="TcQ-Tk-1Sn">
-                                            <rect key="frame" x="0.0" y="0.0" width="406" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="406" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1p-Uh-71z">
@@ -329,7 +331,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="goButton"/>
                                 <connections>
-                                    <action selector="goButton:" destination="L0G-IN-YsK" eventType="touchUpInside" id="6Tj-nZ-MLN"/>
+                                    <action selector="goButton:" destination="L0G-IN-YsK" eventType="touchUpInside" id="iw0-Ny-PPB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -354,7 +356,7 @@
                     <connections>
                         <outlet property="bottomLabel" destination="UdN-jg-sGl" id="hZb-Om-wUx"/>
                         <outlet property="tableView" destination="rCd-mW-oN2" id="8yZ-A3-hfj"/>
-                        <segue destination="Yyh-xB-fNp" kind="unwind" identifier="unwindToImagePicker" unwindAction="unwindToImagePickerWithSegue:" id="Uud-vY-2ec"/>
+                        <segue destination="Yyh-xB-fNp" kind="unwind" identifier="unwindToImagePicker" unwindAction="unwindToImagePickerWithSegue:" id="8O9-zH-1xm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9L-0v-sGK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,6 +12,7 @@ import UIKit
 // This is the only line of code you should be modifying
 var threads: [String: [UIImage]] = ["Memes": [], "Dog Spots": [], "Random": []]
 var times: [String: [Date]] = ["Memes": [], "Dog Spots": [], "Random": []]
+var tracker = [[String]]()
 //
 
 let threadNames = ["Memes", "Dog Spots", "Random"]

@@ -9,8 +9,7 @@
 import UIKit
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var opened = false
-    var tracker = [[String]]()
+
     var currentCategory = ""
     var selectedRow = -1
     var imageString = [UIImage]()
@@ -21,17 +20,24 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     var picArray = [Posted]()
+    var firstTime = true
     @IBOutlet weak var feedTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         feedTableView.delegate = self
         feedTableView.dataSource = self
-        
+    
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.isNavigationBarHidden = false
+        picArray = []
         for (key, value) in threads {
             picArray.append(Posted(category: key, image: value))
         }
-        
-        // Do any additional setup after loading the view.
+        feedTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,35 +54,39 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      //  self.imageString = picArray[section].image
+        print("number of rows in section", picArray[section], picArray[section].image.count )
         return picArray[section].image.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("feedView did cellforRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell") as! FeedTableViewCell
         self.selectedRow = indexPath.row
         self.currentCategory = picArray[indexPath.section].category
-        let elementID = [String(self.selectedRow), String(self.currentCategory)]
-        var currentDate = Date()
-        var timeElapsed = Int(currentDate.timeIntervalSince(times[self.currentCategory]![self.selectedRow]))
+        let currentDate = Date()
+        let timeElapsed = Int(currentDate.timeIntervalSince(times[self.currentCategory]![self.selectedRow]))
         cell.time.text = String(timeElapsed/60) + " minutes ago"
-        cell.square.image = #imageLiteral(resourceName: "unread")
+        let elementID = [String(self.selectedRow), String(self.currentCategory)]
+        cell.square.image = #imageLiteral(resourceName: "read")
+        if !tracker.contains(where: {$0 == elementID}) {
+            cell.square.image = #imageLiteral(resourceName: "unread")
+        }
         cell.userName.text = "Nishita Shetty"
         return cell
+    
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! FeedTableViewCell
         self.selectedRow = indexPath.row
         self.currentCategory = picArray[indexPath.section].category
-        
         let elementID = [String(self.selectedRow), String(self.currentCategory)]
         if !tracker.contains(where: {$0 == elementID}) {
             performSegue(withIdentifier: "showImage", sender: self)
             tracker.append(elementID)
             cell.square.image = #imageLiteral(resourceName: "read")
         }
-        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showImage" {
