@@ -91,7 +91,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "showImage" {
                 if let nextViewController = segue.destination as? ShowImageViewController {
-                    print(self.currentCategory, self.selectedRow)
                     nextViewController.selectedImage = (threads[currentCategory])![selectedRow]
                 }
             }
